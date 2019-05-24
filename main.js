@@ -365,4 +365,417 @@ However, you can use the ? character to change it to lazy matching. "titanic" ma
 
 
 
+// Match Whitespace
+// The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+// You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+
+// let sample = "Whitespace is important in separating words";
+// let countWhiteSpace = /\s/g; // Change this line
+// let result = sample.match(countWhiteSpace);
+// console.log(result);
+
+
+// ****************************
+
+
+
+
+
+// Regular Expressions: Match Non-Whitespace Characters
+// You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+
+// Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
+
+// let whiteSpace = "Whitespace. Whitespace everywhere!"
+// let nonSpaceRegex = /\S/g;
+// whiteSpace.match(nonSpaceRegex).length; // Returns 32
+
+// let sample = "Whitespace is important in separating words";
+// let countNonWhiteSpace = /\S/g; // Change this line
+// let result = sample.match(countNonWhiteSpace);
+// console.log(result);
+
+
+
+
+// *************************************
+
+// Specify Upper and Lower Number of Matches
+// Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters. These are convenient but sometimes you want to match a certain range of patterns.
+
+// You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+// For example, to match only the letter a appearing between 3 and 5 times in the string "ah", your regex would be /a{3,5}h/.
+
+// let A4 = "aaaah";
+// let A2 = "aah";
+// let multipleA = /a{3,5}h/;
+// multipleA.test(A4); // Returns true
+// multipleA.test(A2); // Returns false
+
+// let ohStr = "Ohhh no";
+// let ohRegex = /oh{3,6}\sno/i; // Change this line
+// let result = ohRegex.test(ohStr);
+// console.log(result);
+
+
+
+// **********************************
+
+
+// Specify Exact Number of Matches
+// You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
+
+// To specify a certain number of patterns, just have that one number between the curly brackets.
+
+// For example, to match only the word "hah" with the letter a 3 times, your regex would be /ha{3}h/.
+
+// let A4 = "haaaah";
+// let A3 = "haaah";
+// let A100 = "h" + "a".repeat(100) + "h";
+// let multipleHA = /ha{3}h/;
+// multipleHA.test(A4); // Returns false
+// multipleHA.test(A3); // Returns true
+// multipleHA.test(A100); // Returns false
+
+// let timStr = "Timmmmber";
+// let timRegex = /Tim{4}ber/; // Change this line
+// let result = timRegex.test(timStr);
+
+
+
+// **********************************
+
+
+
+// Check for All or None
+// Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+
+// You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+
+// For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+
+// let american = "color";
+// let british = "colour";
+// let rainbowRegex= /colou?r/;
+// rainbowRegex.test(american); // Returns true
+// rainbowRegex.test(british); // Returns true
+// Change the regex favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+// let favWord = "favorite";
+// let favRegex = /favou?rite/; // Change this line
+// let result = favRegex.test(favWord);
+// console.log(result);
+
+
+// **********************************
+
+
+//              Positive and Negative Lookahead
+// Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
+
+// There are two kinds of lookaheads: positive lookahead and negative lookahead.
+
+// A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+// On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+// Lookaheads are a bit confusing but some examples will help.
+
+// let quit = "qu";
+// let noquit = "qt";
+// let quRegex= /q(?=u)/;
+// let qRegex = /q(?!u)/;
+// quit.match(quRegex); // Returns ["q"]
+// noquit.match(qRegex); // Returns ["q"]
+// A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
+
+// let password = "abc123";
+// let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+// checkPass.test(password); // Returns true
+
+// Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
+
+
+
+
+// let sampleWord = "astronaut";
+// let pwRegex = /(?=\w{5,})(?=\D*\d{2,})/; // Change this line
+// let result = pwRegex.test(sampleWord);
+
+
+
+
+
+
+
+
+
+// **********************************
+
+
+
+
+
+
+
+// Reuse Patterns Using Capture Groups
+// Some patterns you search for will occur multiple times in a string. It is wasteful to manually repeat that regex. There is a better way to specify when you have multiple repeat substrings in your string.
+
+// You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
+
+// To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group.
+
+// The example below matches any word that occurs twice separated by a space:
+
+// let repeatStr = "regex regex";
+// let repeatRegex = /(\w+)\s\1/;
+// repeatRegex.test(repeatStr); // Returns true
+// repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+// Using the .match() method on a string will return an array with the string it matches, along with its capture group.
+
+
+// Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
+
+
+// let repeatNum = "42 42 42";
+// let reRegex = /(\d+)\s\1\s\1/; // Change this line
+// let result = repeatNum.match(reRegex);
+// console.log(result);
+
+
+// **********************************
+
+
+
+
+// Use Capture Groups to Search and Replace
+// Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
+
+// You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+
+// let wrongText = "The sky is silver.";
+// let silverRegex = /silver/;
+// wrongText.replace(silverRegex, "blue");
+// // Returns "The sky is blue."
+// You can also access capture groups in the replacement string with dollar signs ($).
+
+// "Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+// // Returns "Camp Code"
+
+// Write a regex so that it will search for the string "good". Then update the replaceText variable to replace "good" with "okey-dokey".
+
+
+
+
+// let huhText = "This sandwich is good.";
+// let fixRegex = /good/; // Change this line
+// let replaceText = "okey-dokey"; // Change this line
+// let result = huhText.replace(fixRegex, replaceText);
+// console.log(result)
+
+
+
+
+// **********************************
+
+
+
+
+
+// Remove Whitespace from Start and End
+// Sometimes whitespace characters around strings are not wanted but are there. Typical processing of strings is to remove the whitespace at the start and end of it.
+
+
+// Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+
+// Note
+// The .trim() method would work here, but you'll need to complete this challenge using regular expressions.
+
+
+
+// let hello = "   Hello, World!  ";
+// let wsRegex = /^\s+|\s+$/g; // Change this line
+// let result = hello.replace(wsRegex,""); // Change this line
+// console.log(hello);
+// console.log(result);
+
+
+
+
+
+
+
+
+
+
+// **********************************
+
+
+
+// **********************************
+
+
+
+
+// **********************************
+
+
+
+
+// **********************************
+
+
+
+
+// **********************************
+
+
+
+
+
+//                  Debugging 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **********************************
+
+
+
+
+
+
+
+// **********************************
+
+
+
+
+
+
+
+
+
+// **********************************
+
+
+
+
+
+
+
+
+// **********************************
+
+
+
+// Understanding the Differences between the freeCodeCamp and Browser Console
+
+
+
+// This lends itself to some interesting behavior and might trip you up in the beginning, because a logged value that you expect to see only once may print out many more times depending on the number of tests and the values being passed to those tests.
+
+// If you would like to see only your single output and not have to worry about running through the test cycles, you can use          
+
+
+
+//  console.clear().
+
+
+
+
+
+// ***************************
+
+// JavaScript recognizes six primitive (immutable) data types: Boolean, Null, Undefined, Number, String, and Symbol (new with ES6) and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
+
+// let seven = 7;
+// let three = "3";
+// console.log(seven + three);
+// // Add your code below this line
+// console.log(typeof seven);
+// console.log(typeof three);
+
+
+
+
+// **********************************
+
+
+
+// Use Caution When Reinitializing Variables Inside a Loop
+// Sometimes it's necessary to save information, increment counters, or re-set variables within a loop. A potential issue is when variables either should be reinitialized, and aren't, or vice versa. This is particularly dangerous if you accidentally reset the variable being used for the terminal condition, causing an infinite loop.
+
+// Printing variable values with each cycle of your loop by using console.log() can uncover buggy behavior related to resetting, or failing to reset a variable.
+
+//  function zeroArray(m, n) {
+    // Creates a 2-D array with m rows and n columns of zeroes
+    
+//     let newArray = [];
+//     // let row = []; //before
+//     for (let i = 0; i < m; i++) {
+//       // Adds the m-th row into newArray
+//        let row = []; // after
+//       for (let j = 0; j < n; j++) {
+//         // Pushes n zeroes into the current row to create the columns
+//         row.push(0);
+//       }
+//       // Pushes the current row, which now has n zeroes in it, to the array
+//       newArray.push(row);
+//     }
+//     return newArray;
+//   }
+  
+//   let matrix = zeroArray(3, 2);
+//   console.log(matrix);
+
+
+
+
+
+
+// **********************************
+
+
+
+// Prevent Infinite Loops with a Valid Terminal Condition
+// The final topic is the dreaded infinite loop. Loops are great tools when you need your program to run a code block a certain number of times or until a condition is met, but they need a terminal condition that ends the looping. Infinite loops are likely to freeze or crash the browser, and cause general program execution mayhem, which no one wants.
+
+// There was an example of an infinite loop in the introduction to this section - it had no terminal condition to break out of the while loop inside loopy(). Do NOT call this function!
+
+// function loopy() {
+//   while(true) {
+//     console.log("Hello, world!");
+//   }
+// }
+// It's the programmer's job to ensure that the terminal condition, which tells the program when to break out of the loop code, is eventually reached. One error is incrementing or decrementing a counter variable in the wrong direction from the terminal condition. Another one is accidentally resetting a counter or index variable within the loop code, instead of incrementing or decrementing it.
+
+
+// The myFunc() function contains an infinite loop because the terminal condition i != 4 will never evaluate to false (and break the looping) - i will increment by 2 each pass, and jump right over 4 since i is odd to start. Fix the comparison operator in the terminal condition so the loop only runs for i less than or equal to 4.
+
+
+// function myFunc() {
+//     for (let i = 0; i <= 4; i += 2) {
+//       console.log("Still going!");
+//     }
+//   }
+
+
+
+
+// **********************************
+
+
+
 
