@@ -1129,11 +1129,266 @@ However, you can use the ? character to change it to lazy matching. "titanic" ma
   // *********************************************
 
 
+ 
+  // Add Key-Value Pairs to JavaScript Objects
+  // At their most basic, objects are just collections of key-value pairs, or in other words, pieces of data mapped to unique identifiers that we call properties or keys. Let's take a look at a very simple example:
+  
+  // let FCC_User = {
+  //   username: 'awesome_coder',
+  //   followers: 572,
+  //   points: 1741,
+  //   completedProjects: 15
+  // };
+  // The above code defines an object called FCC_User that has four properties, each of which map to a specific value. If we wanted to know the number of followers FCC_User has, we can access that property by writing:
+  
+  // let userData = FCC_User.followers;
+  // // userData equals 572
+  // This is called dot notation. Alternatively, we can also access the property with brackets, like so:
+  
+  // let userData = FCC_User['followers']
+  // // userData equals 572
+  // Notice that with bracket notation, we enclosed followers in quotes. This is because the brackets actually allow us to pass a variable in to be evaluated as a property name (hint: keep this in mind for later!). Had we passed followers in without the quotes, the JavaScript engine would have attempted to evaluate it as a variable, and a ReferenceError: followers is not defined would have been thrown.
+  
+  
+  // Using the same syntax, we can also add new key-value pairs to objects. We've created a foods object with three entries. Add three more entries: bananas with a value of 13, grapes with a value of 35, and strawberries with a value of 27.
+
+
+
+  // let foods = {
+  //   apples: 25,
+  //   oranges: 32,
+  //   plums: 28
+  // };
+  
+  // // change code below this line
+  // foods['bananas'] = 13;
+  // foods['grapes'] = 35;
+  // foods.strawberries = 27;
+  // // change code above this line
+  
+  // console.log(foods);
+  
+
+
+  
+  // *********************************************
+
+
+
+  // Modify an Object Nested Within an Object
+  // Now let's take a look at a slightly more complex object. Object properties can be nested to an arbitrary depth, and their values can be any type of data supported by JavaScript, including arrays and even other objects. Consider the following:
+  
+  // let nestedObject = {
+  //   id: 28802695164,
+  //   date: 'December 31, 2016',
+  //   data: {
+  //     totalUsers: 99,
+  //     online: 80,
+  //     onlineStatus: {
+  //       active: 67,
+  //       away: 13
+  //     }
+  //   }
+  // };
+  // nestedObject has three unique keys: id, whose value is a number, date whose value is a string, and data, whose value is an object which has yet another object nested within it. While structures can quickly become complex, we can still use the same notations to access the information we need.
+  
+  
+  // Here we've defined an object, userActivity, which includes another object nested within it. You can modify properties on this nested object in the same way you modified properties in the last challenge. Set the value of the online key to 45.
+
+
+
+  // let userActivity = {
+  //   id: 23894201352,
+  //   date: 'January 1, 2017',
+  //   data: {
+  //     totalUsers: 51,
+  //     online: 42
+  //   }
+  // };
+  // console.log(userActivity);
+  
+  // // change code below this line
+  // userActivity.data.online = 45;
+  
+  // // change code above this line
+  
+  // console.log(userActivity);
+
+    
+  
+  
+  
+  // *********************************************
 
 
 
 
+//   Access Property Names with Bracket Notation
+// In the first object challenge we mentioned the use of bracket notation as a way to access property values using the evaluation of a variable. For instance, imagine that our foods object is being used in a program for a supermarket cash register. We have some function that sets the selectedFood and we want to check our foods object for the presence of that food. This might look like:
+
+// let selectedFood = getCurrentFood(scannedItem);
+// let inventory = foods[selectedFood];
+// This code will evaluate the value stored in the selectedFood variable and return the value of that key in the foods object, or undefined if it is not present. Bracket notation is very useful because sometimes object properties are not known before runtime or we need to access them in a more dynamic way.
+
+
+// We've defined a function, checkInventory, which receives a scanned item as an argument. Return the current value of the scannedItem key in the foods object. You can assume that only valid keys will be provided as an argument to checkInventory.
+
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28,
+//   bananas: 13,
+//   grapes: 35,
+//   strawberries: 27
+// };
+// // do not change code above this line
+
+// function checkInventory(scannedItem) {
+//   // change code below this line
+// //return foods[scannedItem];
+// return console.log(scannedItem +" left "+"==> \t"+ foods[scannedItem]);
+// }
+
+// // change code below this line to test different cases:
+// console.log(checkInventory("oranges"));
 
 
 
   
+  // *********************************************
+
+
+
+  // Use the delete Keyword to Remove Object Properties
+  // Now you know what objects are and their basic features and advantages. In short, they are key-value stores which provide a flexible, intuitive way to structure data, and, they provide very fast lookup time. Throughout the rest of these challenges, we will describe several common operations you can perform on objects so you can become comfortable applying these useful data structures in your programs.
+  
+  // In earlier challenges, we have both added to and modified an object's key-value pairs. Here we will see how we can remove a key-value pair from an object.
+  
+  // Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+  
+  // delete foods.apples;
+  
+  // Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+  
+
+  // let t0 = new Date().getTime();
+  // console.log(t0);
+
+  // let foods = {
+  //   apples: 25,
+  //   oranges: 32,
+  //   plums: 28,
+  //   bananas: 13,
+  //   grapes: 35,
+  //   strawberries: 27
+  // };
+  
+  // // change code below this line
+
+  // ['oranges','plums','strawberries'].forEach(d => delete foods[d]);
+  // // change code above this line
+  
+  // console.log(foods);
+  // let t1 = new Date().getTime();
+  // console.log(t1);
+  // console.log(t1 - t0);
+
+  
+
+    
+  // *********************************************
+
+
+
+
+//   Check if an Object has a Property
+// Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
+
+// users.hasOwnProperty('Alan');
+// 'Alan' in users;
+// // both return true
+
+// We've created an object, users, with some users in it and a function isEveryoneHere, which we pass the users object to as an argument. Finish writing this function so that it returns true only if the users object contains all four names, Alan, Jeff, Sarah, and Ryan, as keys, and false otherwise.
+
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: true
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: true
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function isEveryoneHere(obj) {
+//   // change code below this line
+// return (users.hasOwnProperty('Alan','Jeff','Sarah','Ryan') ? true : false );
+//   // change code above this line
+// }
+
+// console.log(isEveryoneHere(users));
+
+
+
+// Iterate Through the Keys of an Object with a for...in Statement
+// Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement. For our users object, this could look like:
+
+// for (let user in users) {
+//   console.log(user);
+// };
+
+// // logs:
+// Alan
+// Jeff
+// Sarah
+// Ryan
+// In this statement, we defined a variable user, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console.
+
+// NOTE:
+// Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+
+// We've defined a function, countOnline; use a for...in statement within this function to loop through the users in the users object and return the number of users whose online property is set to true.
+
+
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function countOnline(obj) {
+//   // change code below this line
+//   let onlineUsers = 0;
+//   for (let blaBla in users) {
+//     if (users[blaBla].online === true){
+//       onlineUsers++;
+//     }
+//   }
+//   return onlineUsers;
+//   // change code above this line
+// }
+
+// console.log(countOnline(users));
