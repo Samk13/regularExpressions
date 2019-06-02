@@ -1339,6 +1339,11 @@ However, you can use the ? character to change it to lazy matching. "titanic" ma
 
 
 
+  // *********************************************
+
+
+
+
 // Iterate Through the Keys of an Object with a for...in Statement
 // Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement. For our users object, this could look like:
 
@@ -1392,3 +1397,385 @@ However, you can use the ? character to change it to lazy matching. "titanic" ma
 // }
 
 // console.log(countOnline(users));
+
+
+
+
+
+
+  // *********************************************
+
+
+
+
+//   Generate an Array of All Object Keys with Object.keys()
+// We can also generate an array which contains all the keys stored in an object using the Object.keys() method and passing in an object as the argument. This will return an array with strings representing each property in the object. Again, there will be no specific order to the entries in the array.
+
+
+// Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
+
+
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function getArrayOfUsers(obj) {
+//   // change code below this line
+//   return Object.keys(obj);
+//   // change code above this line
+// }
+
+// console.log(getArrayOfUsers(users));
+
+
+
+
+
+
+  // *********************************************
+
+
+
+
+//   Modify an Array Stored in an Object
+// Now you've seen all the basic operations for JavaScript objects. You can add, modify, and remove key-value pairs, check if keys exist, and iterate over all the keys in an object. As you continue learning JavaScript you will see even more versatile applications of objects. Additionally, the optional Advanced Data Structures lessons later in the curriculum also cover the ES6 Map and Set objects, both of which are similar to ordinary objects but provide some additional features. Now that you've learned the basics of arrays and objects, you're fully prepared to begin tackling more complex problems using JavaScript!
+
+
+// Take a look at the object we've provided in the code editor. The user object contains three keys. The data key contains five keys, one of which contains an array of friends. From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
+
+// let user = {
+//   name: 'Kenneth',
+//   age: 28,
+//   data: {
+//     username: 'kennethCodesAllDay',
+//     joinDate: 'March 26, 2016',
+//     organization: 'freeCodeCamp',
+//     friends: [
+//       'Sam',
+//       'Kira',
+//       'Tomo'
+//     ],
+//     location: {
+//       city: 'San Francisco',
+//       state: 'CA',
+//       country: 'USA'
+//     }
+//   }
+// };
+
+// function addFriend(userObj, friend) {
+//   // change code below this line  
+//    userObj.data.friends.push(friend);
+//    return userObj.data.friends;
+//   // change code above this line
+// }
+
+// console.log(addFriend(user, 'Pete'));
+
+
+
+
+// ************************************************
+
+
+
+// Basic Algorithm Scripting
+
+
+// Convert Celsius to Fahrenheit
+// The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
+
+// You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.
+
+// Don't worry too much about the function and return statements as they will be covered in future challenges. For now, only use operators that you have already learned.
+
+
+// function convertToF(celsius) {
+//   let fahrenheit = celsius * 9 / 5 + 32;
+//   return console.log(fahrenheit);
+  
+// }
+
+// convertToF(30);
+
+
+
+// ************************************************
+
+
+// function reverseString(str) {
+//   // let rs = str.split('');
+//   // console.log(rs);
+//   // rs = rs.reverse();
+//   // console.log(rs);
+//   // rs = rs.join('');
+//   // console.log(rs);
+//   //   return str;
+
+//     return console.log([...str].reverse().join(''));
+//   }
+  
+//   reverseString("hello");
+//   console.log('hello');
+  
+
+
+
+// ************************************************
+
+
+
+// Factorialize a Number
+// Return the factorial of the provided integer.
+
+// If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
+
+// Factorials are often represented with the shorthand notation n!
+
+// For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
+
+// Only integers greater than or equal to zero will be supplied to the function.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+
+// function factorialize(num) {
+//   let res = 1;
+//   while (num > 1) {
+//  res *= num;
+//  num--;
+//  console.log(res);
+ 
+//   }
+//  return res;
+//  }
+ 
+//  factorialize(20);
+
+
+// ************************************************
+
+// Find the Longest Word in a String
+// Return the length of the longest word in the provided sentence.
+
+// Your response should be a number.
+
+
+// function findLongestWordLength(str) {
+//   str = str.split(' ').sort((a,b)=> a.length - b.length);
+//   console.log(str);
+//   console.log('the logrst word is '+ '==>\t'+str[str.length -1]);
+  
+//   return str[str.length -1].length; 
+
+
+
+// }
+
+// console.log(
+// findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+
+
+// ************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// : Return Largest Numbers in Arrays
+// Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+
+// Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function largestOfFour(arr) {
+//   arr.forEach((arr1)=> arr1.sort((a,b)=>b - a));
+//   arr.forEach((arr1)=> arr1.splice(1,3));
+//   console.log(arr);
+  
+//   arr = arr.reduce((arr1,arr2) => arr1.concat(arr2));
+//   return arr;
+//   console.log(arr);
+  
+// }
+
+// console.log(
+//   largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
+
+
+
+
+
+
+
+
+
+
+
+  
+// ************************************************
+
+
+
+
+
+
+
+
+// Basic Algorithm Scripting: Confirm the Ending
+// Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+// This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+
+
+
+
+
+
+
+
+//function confirmEnding(str, target) {
+  // let test = str.length - target.length ;
+  // console.log(test);
+
+  // return Boolean(str.substr(test)=== target);
+
+  //return str;
+// solution 2 ==>
+
+//   return str.substr(-target.length) == target;
+// }
+
+// console.log(
+
+// //confirmEnding("Bastian", "naa");
+//  confirmEnding("Walking on water and developing software from a specification are easy if both are frozen", "specification")
+// // confirmEnding("Congratulation", "on")
+
+// );
+
+
+
+
+
+
+
+
+
+
+// ************************************************
+
+
+
+
+// Repeat a String Repeat a String
+// Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
+
+
+
+// function repeatStringNumTimes(str, num) {
+//   let resultStr = '';
+//   while (num > 0) {
+//     resultStr = resultStr.concat(str);
+//     num --;
+//   }
+//   return resultStr;
+// };
+// console.log(
+// repeatStringNumTimes("abc", 3)
+// );
+// ************************************************
+
+
+
+
+
+
+
+// Truncate a String
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+
+
+// function truncateString(str, num) {
+//   if(str.length > num) {
+//     if (num <= 3) {
+//       str = str.slice(0,num) + "...";
+//     }
+//     else {
+//       str =str.slice(0,num) + "...";
+//     }
+//   }
+//   return str;
+// }
+
+// console.log(
+
+// //truncateString("A-tisket a-tasket A green and yellow basket", 8) + 
+// truncateString("Peter Piper picked a peck of pickled peppers", 11) +
+// truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length)
+
+// );
+// ************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+//  ***********************************************
+
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
+//  ***********************************************
