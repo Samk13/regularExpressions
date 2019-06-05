@@ -1765,11 +1765,100 @@ However, you can use the ? character to change it to lazy matching. "titanic" ma
 
 
 
+// Finders Keepers
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+
+
+
+// function findElement(arr, func) {
+
+// for (let i =0; i< arr.length; i++){
+//   if (func(arr[i])){
+//     return arr[i];
+//   }
+   
+  
+
+
+// }
+// }
+
+
+// console.log(
+
+// findElement([1, 2, 3, 4], num => num % 2 === 0));
+
 
 
 //  ***********************************************
 
+
+
+
+
+
+
+
+// Boo who
+// Check if a value is classified as a boolean primitive. Return true or false.
+
+// Boolean primitives are true and false.
+
+
+
+
+
+
+
+
+// function booWho(bool) {
+// return typeof bool === 'boolean';
+
+// }
+
+// console.log(
+//   booWho(true)
+// );
+ //should return true.
+// booWho(false) //should return true.
+// booWho([1, 2, 3]) //should return false.
+// booWho([].slice) // should return false.
+// booWho({ "a": 1 }) // should return false.
+// booWho(1) // should return false.
+// booWho(NaN) //should return false.
+// booWho("a") //should return false.
+// booWho("true") // should return false.
+// booWho("false") // should return false.
+
 //  ***********************************************
+
+
+
+
+// Title Case a Sentence
+// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+// For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+// titleCase("I'm a little tea pot") should return a string.
+// titleCase("I'm a little tea pot") should return I'm A Little Tea Pot.
+// titleCase("sHoRt AnD sToUt") should return Short And Stout.
+// titleCase("HERE IS MY HANDLE HERE IS MY SPOUT") should return Here Is My Handle Here Is My Spout.
+
+
+
+const toTitleCase = (str) {
+  str = str.split(' ');
+  return str;
+};
+
+console.log(
+
+titleCase("I'm a little tea pot")
+);
+
+
+
+
 //  ***********************************************
 //  ***********************************************
 //  ***********************************************
